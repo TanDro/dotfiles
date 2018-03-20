@@ -30,7 +30,11 @@ $clean_ext .= ' %R.ist %R.xdy';
 
 add_cus_dep('svg', 'pdf_tex', 0, 'svg2pdf_tex');
 sub svg2pdf_tex {
-        return system("inkscape -z -C --export-latex --export-pdf=\"$_[0].pdf\" --file=\"$_[0].svg\"");
+   return system("inkscape -z -C --export-latex --export-pdf=\"$_[0].pdf\" --file=\"$_[0].svg\"");
+}
+add_cus_dep('svg', 'pdf', 0, 'svg2pdf');
+sub svg2pdf{
+   return system("inkscape -z -C --export-pdf=\"$_[0].pdf\" \"$_[0].svg\"");
 }
 add_cus_dep('png', 'eps', 0, 'png2eps');
 sub png2eps {
