@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 ## rsync -aAXv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /network/BACKUP_HOC
-DATE=$(date +%Y-%m-%d)
 sudo mount /media/backup
 
-sudo borg create -C lzma -e none --stats --progress /media/backup/jens/borgbackup::backup-$(DATE) / --exclude /dev --exclude /proc --exclude /sys --exclude /var/run --exclude /run --exclude /lost+found --exclude /mnt --exclude /var/lib/lxcfs --exclude /home/jens/git --exclude /media
+sudo borg create -C lzma -e none --stats --progress /media/backup/jens/borgbackup::backup-$(date +%Y-%m-%d) / --exclude /dev --exclude /proc --exclude /sys --exclude /var/run --exclude /run --exclude /lost+found --exclude /mnt --exclude /var/lib/lxcfs --exclude /home/jens/git --exclude /media
 
 sudo umount /media/backup
