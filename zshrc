@@ -14,3 +14,4 @@ function zle-line-init zle-keymap-select {
 
 alias vim='vim --servername vim'
 alias vi='vim'
+alias matlab='LD_PRELOAD=/usr/lib/libstdc++.so.6.0.28 /usr/local/MATLAB/R2017b/bin/matlab -desktop'

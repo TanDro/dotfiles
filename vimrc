@@ -228,6 +228,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Function to take a newline after a dot
+inoremap . .
+inoremap \. .
 
 " Setup Pathogen to manage your plugins
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
@@ -241,11 +244,35 @@ call pathogen#infect()
 " ============================================================================
 
 
-" Settings for vim-powerline
-" cd ~/.vim/bundle
-" git clone git://github.com/Lokaltog/vim-powerline.git
-set laststatus=2
+" Settings for vim-airline
+let g:airline_powerline_fonts = 1
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " Settings for jedi-vim
 " cd ~/.vim/bundle
@@ -264,3 +291,34 @@ let g:tex_flavor = "latex"
 let g:vimtex_fold_manual = 1
 let g:vimtex_view_method = 'zathura'
 let g:latex_view_general_viewer = 'zathura'
+
+" ============================================================================
+" Thesauri
+" ============================================================================
+if has("win64") || has("win32")
+	set thesaurus=$HOME/vimfiles/spell/thesaurus-de.txt
+	set thesaurus+=$HOME/vimfiles/spell/thesaurus-en.txt
+else
+	set thesaurus=$HOME/.vim/spell/thesaurus-de.txt
+	set thesaurus+=$HOME/.vim/spell/thesaurus-en.txt
+endif
+
+" ============================================================================
+" Spellchecker
+" ============================================================================
+nmap <C>se :setlocal spell! spelllang=en_us<cr>
+nmap <C>sd :setlocal spell! spelllang=de<cr>
+
+" ============================================================================
+" Wintab
+" ============================================================================
+map <C-U> <Plug>(wintabs_previous)
+map <C-I> <Plug>(wintabs_next)
+map <C-T>c <Plug>(wintabs_close)
+map <C-T>u <Plug>(wintabs_undo)
+map <C-T>o <Plug>(wintabs_only)
+map <C-W>c <Plug>(wintabs_close_window)
+map <C-W>o <Plug>(wintabs_only_window)
+command! Tabc WintabsCloseVimtab
+command! Tabo WintabsOnlyVimtab
+
