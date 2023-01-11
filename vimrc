@@ -261,4 +261,6 @@ let g:deoplete#enable_at_startup = 1
 " ============================================================================
 let g:vimwiki_list = [{'path': '~/git/toDo/', 'path_html':'~/git/toDo/html/'}]
 let g:vimwiki_global_ext = 0
-nmap <Leader>wi <Plug>VimwikiNextLink
+nmap <leader>wq <Plug>VimwikiPrevLink
+nmap <leader>we <Plug>VimwikiNextLink
+nmap <leader>wa <Plug>VimwikiToggleListItem
