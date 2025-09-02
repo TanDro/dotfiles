@@ -3,6 +3,9 @@ autocmd! bufwritepost .vimrc source %
 
 set encoding=utf-8
 set regexpengine=1
+set re=0
+set cursorline
+
 " Settings for NERDTree
 " cd ~/.vim/bundle
 " git clone https://github.com/scrooloose/nerdtree.git
@@ -57,13 +60,6 @@ let mapleader = ","
 noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
-
-
-" Quicksave command
-noremap <C-Z> :update<CR>
-vnoremap <C-Z> <C-C>:update<CR>
-inoremap <C-Z> <C-O>:update<CR>
-
 
 " Quick quit command
 noremap <Leader>e :quit<CR>  " Quit current window
@@ -132,8 +128,8 @@ nmap Q gqap
 
 
 " Useful settings
-set history=700
-set undolevels=700
+set history=10000
+set undolevels=10000
 
 
 " Real programmers don't use TABs but spaces
@@ -160,6 +156,7 @@ set noswapfile
 " Function to take a newline after a dot
 " inoremap . .
 " inoremap \. .
+tnoremap <C-z> <C-w>:suspend<CR>
 
 " Setup Pathogen to manage your plugins
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
@@ -259,8 +256,10 @@ let g:deoplete#enable_at_startup = 1
 " ============================================================================
 " Vim Wiki
 " ============================================================================
-let g:vimwiki_list = [{'path': '~/git/toDo/', 'path_html':'~/git/toDo/html/'}]
+let g:vimwiki_list = [{'path': '~/sync/exchange/toDo/', 'path_html':'~/sync/exchange/toDo/html/'}]
 let g:vimwiki_global_ext = 0
 nmap <leader>wq <Plug>VimwikiPrevLink
 nmap <leader>we <Plug>VimwikiNextLink
 nmap <leader>wa <Plug>VimwikiToggleListItem
+
+highlight CursorLineNR cterm=bold ctermfg=Yellow
