@@ -18,7 +18,7 @@ riverctl map normal Control+Shift R spawn "$HOME/.config/river/init"
 riverctl map normal Super V spawn "$HOME/.config/river/scripts/clipManager.zsh"
 riverctl map normal XF86Display spawn "$HOME/.config/river/scripts/display.zsh"
 riverctl map normal Super P spawn "$HOME/.config/river/scripts/power.zsh"
-riverctl map normal Super+Shift S spawn "grim -g \"$(slurp)\" - | swappy -f -"
+riverctl map normal Super+Shift S spawn "grim -g \"\$(slurp)\" - | swappy -f -"
 riverctl map normal Super+Shift P spawn "$HOME/.config/river/scripts/lock.zsh"
 
 # Super+Q to close the focused view
@@ -184,7 +184,6 @@ rivertile -view-padding 3 -outer-padding 3 &
 
 # Set background
 riverctl spawn "swaybg -i $HOME/.config/river/wall.png"
-riverctl spawn mako
 riverctl spawn waybar
 riverctl spawn "kanshi -c $HOME/.config/kanshi/$(uname -n)"
 riverctl spawn "nm-applet --indicator"
@@ -202,3 +201,5 @@ $HOME/.config/river/scripts/idle.zsh
 sleep 2
 riverctl spawn megasync
 riverctl spawn keepassxc
+riverctl spawn udiskie
+riverctl spawn mako

@@ -3,7 +3,23 @@
     "layer": "top",
     "modules-left": ["tray","cpu","memory","temperature"],
     "modules-center": ["river/tags"],
-    "modules-right": ["pulseaudio", "backlight", "network", "clock", "battery"],
+    "modules-right": ["group/audio", "backlight", "network", "clock", "battery"],
+
+    "group/audio": {
+        "orientation": "horizontal",
+        "modules": [
+            "upower",
+            "pulseaudio",
+        ]
+    },
+
+    "upower": {
+        "native-path": "/org/bluez/hci0/dev_EC_66_D1_B8_FC_A0",
+        "hide-if-empty": false,
+        "tooltip": false,
+        "format": "{percentage} ",
+        "show-icon": false
+    },
 
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -69,17 +85,17 @@
         "states": {
             "good": 95,
             "warning": 30,
-            "critical": 20
+            "critical": 20,
         },
         "format": "{icon}  {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
     },
     "tray":{
         "icon-size": 18,
-        "spacing": 10
+        "spacing": 10,
     },
     "clock": {
         "format": " {0:%H:%M} 󰸘 {0:%d.%m.%y}",
@@ -103,8 +119,8 @@
             "on-click-forward": "tz_up",
             "on-click-backward": "tz_down",
             "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
+            "on-scroll-down": "shift_down",
+        },
     },
     "cpu": {
         "format": " {usage}%",
